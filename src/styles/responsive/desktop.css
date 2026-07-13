@@ -1,0 +1,61 @@
+@media (min-width: 1200px) {
+  main {
+    max-width: 1180px;
+    padding: 24px 0 112px;
+  }
+
+  .search-container,
+  .setting-container,
+  .favorites-container {
+    margin: 24px auto;
+    max-width: 980px;
+    padding: 0 28px 112px;
+  }
+
+  .search-container input,
+  .setting-item select {
+    font-size: 1.05rem;
+    padding: 13px 16px;
+  }
+
+  .result-item {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+  }
+
+  .result-item h3 {
+    font-size: 1.12rem;
+  }
+
+  .favorites-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .coffee-container {
+    margin: 14px auto 0;
+    max-width: 680px;
+    padding: 24px 22px;
+  }
+
+  .coffee-number {
+    font-size: 1.1rem;
+    letter-spacing: 1.2px;
+  }
+
+  .bottom-nav {
+    border: 1px solid var(--border);
+    border-bottom: 0;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    left: 50%;
+    margin: 0 auto;
+    max-width: 760px;
+    padding: 10px 12px;
+    transform: translateX(-50%);
+  }
+
+  .bottom-nav a {
+    font-size: 1rem;
+    padding: 11px 10px;
+  }
+}

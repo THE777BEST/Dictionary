@@ -1,0 +1,101 @@
+export const copy = {
+  en: {
+    common: {
+      dark: "Dark",
+      english: "English",
+      light: "Light",
+      removeFavorite: "Remove from favorites",
+      saveFavorite: "Save to favorites",
+      uzbek: "Uzbek",
+    },
+    favorites: {
+      clearAll: "Clear all",
+      emptyDescription: "Tap the star on a result and it will appear here.",
+      emptyTitle: "No favorites saved",
+      items: (count) => `${count} saved ${count === 1 ? "word" : "words"}`,
+      subtitle: "Your quick-access word list",
+      title: "Favorites",
+    },
+    nav: {
+      favorites: "Favorites",
+      search: "Search",
+      settings: "Settings",
+    },
+    search: {
+      directionLabel: "Direction",
+      emptyDescription: "Find translations of words quickly",
+      emptyHint: "Enter a word to start",
+      emptyTitle: "Search word translations",
+      noResultsDescription: "Try another spelling or switch the EN/UZ direction.",
+      noResultsTitle: "No results found",
+      placeholder: "Search words",
+      resultCount: (count) => `${count} matches`,
+      resultsTitle: "Matches",
+      searchingDescription: "Results appear after a short debounce for smoother typing.",
+      searchingTitle: "Searching the dictionary...",
+      subtitle: "Fast EN/UZ lookup",
+      title: "Dictionary",
+    },
+    settings: {
+      aboutBody:
+        "Lugat is a mobile-first EN/UZ dictionary with quick search, local favorites, and a polished reading-friendly interface.",
+      aboutTitle: "About",
+      appLanguage: "App language",
+      subtitle: "Language, theme, and app info",
+      support: "Support project",
+      theme: "Appearance",
+      title: "Settings",
+    },
+  },
+  uz: {
+    common: {
+      dark: "Qorong'i",
+      english: "Inglizcha",
+      light: "Yorug'",
+      removeFavorite: "Sevimlilardan olib tashlash",
+      saveFavorite: "Sevimlilarga qo'shish",
+      uzbek: "O'zbekcha",
+    },
+    favorites: {
+      clearAll: "Tozalash",
+      emptyDescription:
+        "Natijadagi yulduzchani bossangiz, so'z shu yerga saqlanadi.",
+      emptyTitle: "Sevimlilar hali yo'q",
+      items: (count) => `${count} ta saqlangan so'z`,
+      subtitle: "Tez ochiladigan saqlangan so'zlar",
+      title: "Sevimlilar",
+    },
+    nav: {
+      favorites: "Sevimli",
+      search: "Qidiruv",
+      settings: "Sozlama",
+    },
+    search: {
+      directionLabel: "Yo'nalish",
+      emptyDescription: "So'z tarjimalarini tez toping",
+      emptyHint: "Boshlash uchun so'z kiriting",
+      emptyTitle: "So'z tarjimasini qidiring",
+      noResultsDescription:
+        "Boshqa yozilishini kiriting yoki EN/UZ yo'nalishini almashtiring.",
+      noResultsTitle: "Natija topilmadi",
+      placeholder: "So'z qidiring",
+      resultCount: (count) => `${count} ta natija`,
+      resultsTitle: "Topilganlar",
+      searchingDescription:
+        "Yozayotganingizda qidiruv silliq ishlashi uchun qisqa kutish ishlatiladi.",
+      searchingTitle: "Lug'atdan qidirilmoqda...",
+      subtitle: "Tezkor EN/UZ lug'at",
+      title: "Lug'at",
+    },
+    settings: {
+      aboutBody:
+        "Lugat tez qidiruv, qurilmada saqlanadigan sevimlilar va qulay mobil interfeysga ega ixcham EN/UZ lug'atidir.",
+      aboutTitle: "Ilova haqida",
+      appLanguage: "Ilova tili",
+      subtitle: "Til, mavzu va ilova ma'lumoti",
+      support: "Loyihani qo'llab-quvvatlash",
+      theme: "Ko'rinish",
+      title: "Sozlamalar",
+    },
+  },
+};

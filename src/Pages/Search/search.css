@@ -1,0 +1,111 @@
+.search-container {
+  max-width: 760px;
+  margin: 20px auto;
+  padding: 0 16px 96px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 16px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+}
+
+.search-hint {
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.results {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.result-item {
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.result-item:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.result-head {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.result-item h3 {
+  color: var(--text);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.result-item p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.ios-favorite-btn {
+  -webkit-tap-highlight-color: transparent;
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f4f7 100%);
+  border: 1px solid #d6dbe1;
+  border-radius: 999px;
+  color: #98a2b3;
+  cursor: pointer;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  transition: all 0.2s ease;
+  width: 32px;
+}
+
+body[data-theme="dark"] .ios-favorite-btn {
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+.ios-favorite-btn:hover {
+  border-color: #94a3b8;
+  color: #64748b;
+}
+
+.ios-favorite-btn.is-favorite {
+  background: linear-gradient(180deg, #ffe3ea 0%, #ffd4de 100%);
+  border-color: #ff8ca7;
+  box-shadow: 0 6px 14px rgba(255, 55, 95, 0.25);
+  color: #ff375f;
+}
+
+body[data-theme="dark"] .ios-favorite-btn.is-favorite {
+  background: linear-gradient(180deg, #6b1f36 0%, #531629 100%);
+  border-color: #9b3458;
+}
+
+.ios-favorite-btn svg {
+  height: 18px;
+  width: 18px;
+}

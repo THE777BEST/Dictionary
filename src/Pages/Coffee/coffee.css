@@ -1,0 +1,87 @@
+.coffee-container {
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  margin-top: 12px;
+  padding: 20px 16px;
+}
+
+.coffee-container h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.coffee-container p {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+}
+
+.coffee-number {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 1.05rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.coffee-payment {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.copy-card-btn {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  height: 44px;
+  justify-content: center;
+  transition: all 0.2s ease;
+  width: 44px;
+}
+
+.copy-card-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.copy-card-btn.is-copied {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+.copy-card-btn svg {
+  height: 18px;
+  width: 18px;
+}
+
+.copy-status {
+  color: #22c55e;
+  font-size: 0.86rem;
+  margin-top: 8px;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.copy-status.show {
+  opacity: 1;
+}
+
+.emoji-big {
+  font-size: 2.1rem;
+  margin-bottom: 10px;
+}

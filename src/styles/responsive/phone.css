@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+  main {
+    padding: 12px 0 92px;
+  }
+
+  .search-container,
+  .setting-container,
+  .favorites-container {
+    margin: 12px auto;
+    padding: 0 12px 92px;
+  }
+
+  .results,
+  .favorite-item,
+  .coffee-container {
+    border-radius: 12px;
+  }
+
+  .result-item h3,
+  .favorite-top h3 {
+    font-size: 1rem;
+  }
+
+  .coffee-number {
+    font-size: 0.96rem;
+    letter-spacing: 0.6px;
+  }
+
+  .bottom-nav {
+    gap: 4px;
+    padding: 8px 6px;
+  }
+
+  .bottom-nav a {
+    font-size: 0.88rem;
+    padding: 9px 4px;
+  }
+}
