@@ -45,6 +45,15 @@
 @layer base {
   :root {
     font-family: var(--font-sans);
+    --font-scale: 1;
+  }
+
+  :root[data-font-size="small"] {
+    --font-scale: 0.9;
+  }
+
+  :root[data-font-size="large"] {
+    --font-scale: 1.1;
   }
 
   * {
@@ -55,6 +64,10 @@
   body,
   #root {
     min-height: 100%;
+  }
+
+  html {
+    font-size: calc(16px * var(--font-scale));
   }
 
   body {

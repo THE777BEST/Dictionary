@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { createWordId } from "../../utils/favorites.js";
 import "./search.css";
 
+const vocabularyModules = import.meta.glob("../../vocabularies/*.js");
+
 const texts = {
   en: {
     noResult: "No words found",
@@ -34,7 +36,15 @@ function normalizeVocabulary(data) {
     .filter((item) => item.eng.length > 0);
 }
 
-function HeartIcon({ filled }) {
+function formatTran(tran) {
+  if (!tran) {
+    return "";
+  }
+
+  return tran.replace(/^\/+|\/+$/g, "").trim();
+}
+
+function HeartIcon({ filled = false }) {
   return (
     <svg
       aria-hidden="true"
@@ -50,6 +60,18 @@ function HeartIcon({ filled }) {
   );
 }
 
+async function loadVocabulary(letter) {
+  const modulePath = `../../vocabularies/${letter}.js`;
+  const loader = vocabularyModules[modulePath];
+
+  if (!loader) {
+    return [];
+  }
+
+  const module = await loader();
+  return normalizeVocabulary(module.default);
+}
+
 function Search({ favorites, language, onToggleFavorite }) {
   const [word, setWord] = useState("");
   const [vocabulary, setVocabulary] = useState([]);
@@ -58,23 +80,17 @@ function Search({ favorites, language, onToggleFavorite }) {
 
   useEffect(() => {
     const input = word.trim().toLowerCase();
-    if (!input) {
-      setVocabulary([]);
+    if (!input || !/^[a-z]$/.test(input[0])) {
       return;
     }
 
     const letter = input[0];
-    if (!/^[a-z]$/.test(letter)) {
-      setVocabulary([]);
-      return;
-    }
-
     let isCancelled = false;
 
-    import(`../../vocabularies/${letter}.js`)
-      .then((module) => {
+    loadVocabulary(letter)
+      .then((items) => {
         if (!isCancelled) {
-          setVocabulary(normalizeVocabulary(module.default));
+          setVocabulary(items);
         }
       })
       .catch(() => {
@@ -89,12 +105,33 @@ function Search({ favorites, language, onToggleFavorite }) {
   }, [word]);
 
   const normalizedWord = word.trim().toLowerCase();
-  const filtered =
-    normalizedWord === ""
-      ? []
-      : vocabulary.filter((obj) =>
-          obj.eng.toLowerCase().startsWith(normalizedWord)
+  const filtered = useMemo(() => {
+    if (!normalizedWord) {
+      return [];
+    }
+
+    const activeVocabulary =
+      /^[a-z]$/.test(normalizedWord[0]) ? vocabulary : [];
+
+    return activeVocabulary
+      .filter((obj) => {
+        const engLower = obj.eng.toLowerCase();
+        const uzbLower = obj.uzb.toLowerCase();
+        return (
+          engLower.startsWith(normalizedWord) || uzbLower.includes(normalizedWord)
         );
+      })
+      .sort((a, b) => {
+        const aEng = a.eng.toLowerCase();
+        const bEng = b.eng.toLowerCase();
+        const aStartsWith = aEng.startsWith(normalizedWord);
+        const bStartsWith = bEng.startsWith(normalizedWord);
+
+        if (aStartsWith && !bStartsWith) return -1;
+        if (!aStartsWith && bStartsWith) return 1;
+        return aEng.localeCompare(bEng);
+      });
+  }, [normalizedWord, vocabulary]);
 
   const favoriteIds = useMemo(
     () => new Set(favorites.map((favorite) => favorite.id)),
@@ -116,15 +153,15 @@ function Search({ favorites, language, onToggleFavorite }) {
 
       {filtered.length > 0 && (
         <div className="results">
-          {filtered.map((obj, i) => {
+          {filtered.map((obj, index) => {
             const wordId = createWordId(obj);
             const isFavorite = favoriteIds.has(wordId);
 
             return (
-              <div className="result-item" key={wordId || `${obj.eng}-${i}`}>
+              <div className="result-item" key={wordId || `${obj.eng}-${index}`}>
                 <div className="result-head">
                   <h3>
-                    {i + 1}) {obj.eng}
+                    {index + 1}) {obj.eng}
                   </h3>
                   <button
                     aria-label={isFavorite ? t.removeFavorite : t.saveFavorite}
@@ -137,7 +174,12 @@ function Search({ favorites, language, onToggleFavorite }) {
                 </div>
 
                 <p>
-                  <b>{obj.type}</b> | {obj.uzb} | <i>/{obj.tran}/</i>
+                  <b>{obj.type}</b> | {obj.uzb}
+                  {obj.tran && (
+                    <span className="result-spelling">
+                      /{formatTran(obj.tran)}/
+                    </span>
+                  )}
                 </p>
               </div>
             );

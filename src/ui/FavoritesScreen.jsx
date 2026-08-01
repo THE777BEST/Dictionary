@@ -5,7 +5,7 @@ import { WordCard } from "./WordCard.jsx";
 export function FavoritesScreen({
   favorites,
   onClearFavorites,
-  onOpenExplanation,
+  onOpenEntry,
   onToggleFavorite,
   text,
 }) {
@@ -53,7 +53,7 @@ export function FavoritesScreen({
             }}
             entry={entry}
             isFavorite
-            onOpenExplanation={onOpenExplanation}
+            onOpen={onOpenEntry}
             onToggleFavorite={onToggleFavorite}
             primaryLabel="EN"
             secondaryLabel={entry.uzb || "-"}

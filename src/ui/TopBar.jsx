@@ -15,12 +15,15 @@ export function TopBar({
         <div className="rounded-[30px] border border-slate-200/70 bg-white/78 p-3 shadow-[0_20px_50px_rgba(15,23,42,0.12)] backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/58 dark:shadow-[0_26px_55px_rgba(2,12,25,0.5)]">
           <div className="flex items-center gap-3">
             <label className="relative flex-1">
+              <span className="sr-only">{text.search.placeholder}</span>
               <SearchIcon className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
               <input
                 autoComplete="off"
                 className="h-14 w-full rounded-[30px] border border-slate-200/70 bg-slate-50/90 pl-12 pr-4 text-[15px] font-medium text-slate-900 outline-none transition duration-300 placeholder:text-slate-400 focus:border-[#3B82F6] focus:ring-4 focus:ring-[#3B82F6]/15 dark:border-white/10 dark:bg-white/7 dark:text-slate-50 dark:placeholder:text-slate-500"
                 onChange={(event) => onSearchQueryChange(event.target.value)}
+                aria-label={text.search.placeholder}
                 placeholder={text.search.placeholder}
+                spellCheck={false}
                 type="search"
                 value={searchQuery}
               />

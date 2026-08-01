@@ -23,6 +23,7 @@ export function BottomNavigation({ activeTab, onChange, text }) {
 
           return (
             <button
+              aria-pressed={isActive}
               className={`flex flex-col items-center justify-center gap-1.5 rounded-full px-3 py-2.5 text-[11px] font-medium transition-all duration-200 active:scale-95 ${
                 isActive
                   ? "scale-[1.02] bg-slate-900/5 text-slate-950 ring-1 ring-[#3B82F6]/18 dark:bg-white/[0.08] dark:text-white dark:ring-white/8"

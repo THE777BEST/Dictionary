@@ -34,21 +34,25 @@ function Coffee({ language = "uz" }) {
   }
 
   return (
-    <section className="rounded-[24px] border border-dashed border-slate-200/70 bg-slate-50/70 p-4 text-center dark:border-white/10 dark:bg-slate-950/35">
-      <div
-        aria-hidden="true"
-        className="mx-auto mb-3 flex size-14 items-center justify-center rounded-full bg-[#3B82F6]/12 text-3xl shadow-[0_12px_28px_rgba(59,130,246,0.16)]"
-      >
-        {"\u2615"}
+    <div className="space-y-4">
+      <div className="flex items-start gap-3">
+        <div
+          aria-hidden="true"
+          className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#3B82F6]/10 text-2xl text-[#3B82F6]"
+        >
+          {"\u2615"}
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+            {t.title}
+          </h3>
+          <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">
+            {t.message}
+          </p>
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-        {t.title}
-      </h3>
-      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-        {t.message}
-      </p>
-      <div className="mt-4 flex items-center gap-2 rounded-[18px] border border-slate-200/70 bg-white/80 p-2 dark:border-white/10 dark:bg-white/6">
-        <div className="min-w-0 flex-1 rounded-[14px] bg-slate-100 px-3 py-3 text-left font-mono text-[0.95rem] tracking-[0.14em] text-slate-800 dark:bg-slate-900/70 dark:text-slate-100">
+      <div className="flex items-center gap-2 rounded-[18px] border border-slate-200/70 bg-white/80 p-2 dark:border-white/10 dark:bg-white/6">
+        <div className="min-w-0 flex-1 rounded-[14px] bg-slate-100 px-3 py-3 text-left font-mono text-[0.92rem] tracking-[0.12em] text-slate-800 dark:bg-slate-900/70 dark:text-slate-100">
           {cardNumber}
         </div>
         <button
@@ -77,13 +81,13 @@ function Coffee({ language = "uz" }) {
         </button>
       </div>
       <p
-        className={`mt-2 min-h-5 text-sm font-medium text-emerald-500 transition-opacity duration-200 ${
+        className={`min-h-5 text-sm font-medium text-emerald-500 transition-opacity duration-200 ${
           isCopied ? "opacity-100" : "opacity-0"
         }`}
       >
         {t.copied}
       </p>
-    </section>
+    </div>
   );
 }
 
